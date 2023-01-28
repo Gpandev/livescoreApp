@@ -13,7 +13,14 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = [
+  'Football',
+  'Tennis',
+  'Volleyball',
+  'Basketball',
+  'Handball',
+  'Snooker',
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -40,10 +47,12 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" style={{ width: '100%' }}>
+    <AppBar
+      position="static"
+      style={{ backgroundColor: '#688D98', width: '100%' }}
+    >
       <Container maxWidth={'xl'}>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -59,7 +68,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Livescore
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
