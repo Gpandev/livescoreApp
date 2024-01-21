@@ -21,6 +21,7 @@ const pages = [
   'Handball',
   'Snooker',
 ];
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
