@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const FootballPage = () => {
-  return <div>FootballPage</div>;
+export const FootballPage: React.FC = () => {
+  return <h1 style={{ color: 'red' }}>Football Page</h1>;
 };

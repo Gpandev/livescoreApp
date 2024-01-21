@@ -1,8 +1,6 @@
 import './App.css';
-import ResponsiveAppBar from './App/AppHeader';
+import { ResponsiveAppBar } from './App/AppHeader';
 
-function App() {
+export const App = () => {
   return <ResponsiveAppBar />;
 }
-
-export default App;
