@@ -1,8 +1,10 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import { FootballPage } from '../pages/Football/FootballPage';
-import { TennisPage } from '../pages/Tennis/TennisPage';
-import { BasketballPage } from '../pages/BasketBall/BasketballPage';
+import { Tab, Tabs } from '@mui/material';
+import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
+import SportsTennisIcon from '@mui/icons-material/SportsTennis';
+import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
+import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
+import SportsHandballIcon from '@mui/icons-material/SportsHandball';
 
 const pages = [
   'Football',
@@ -15,29 +17,55 @@ const pages = [
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-export const ResponsiveAppBar: React.FC = () => {
-  const handleOpenPage = (page: string) => {
-    console.log(page);
+interface Props {
+  onChangeTab: React.Dispatch<React.SetStateAction<number>>;
+  value: number;
+}
 
-    if (page === 'Tennis') {
-      console.log('aaaaaaaaaaaaaaa');
+export const ResponsiveAppBar: React.FC<Props> = ({ onChangeTab, value }) => {
 
-      return <TennisPage />;
+  const renderIcon = (page: string) => {
+    switch (page) {
+      case 'Football':
+        return <SportsSoccerIcon />;
+      case 'Tennis':
+        return <SportsTennisIcon />;
+      case 'Volleyball':
+        return <SportsVolleyballIcon />;
+      case 'Basketball':
+        return <SportsBasketballIcon />;
+      case 'Handball':
+        return <SportsHandballIcon />;
+      case 'Snooker':
+        return <SportsSoccerIcon />;
+
+      default:
+        return <></>;
     }
-    if (page === 'Basketball') {
-      return <BasketballPage />;
-    }
+  };
 
-    return <FootballPage />;
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    console.log(newValue);
+    onChangeTab(newValue);
   };
 
   return (
     <>
-      {pages.map((page) => (
-        <Button key={page} onClick={() => handleOpenPage(page)}>
-          {page}
-        </Button>
-      ))}
+      <Tabs
+        value={value}
+        onChange={(e, value) => handleChange(e, value)}
+        centered
+        role="navigation"
+      >
+        {pages.map((page) => (
+          <Tab
+            key={page}
+            icon={renderIcon(page)}
+            label={`${page}`}
+            href={`/${page === 'Football' ? '' : page.toLocaleLowerCase()}`}
+          />
+        ))}
+      </Tabs>
     </>
   );
 };
