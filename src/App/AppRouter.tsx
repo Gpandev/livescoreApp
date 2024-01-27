@@ -22,7 +22,10 @@ const AppRouter: React.FC = () => {
   return (
     <>
       <Router>
-        <ResponsiveAppBar onChangeTab={setValue} value={value} />
+        <ResponsiveAppBar
+          onChangeTab={setValue}
+          value={value}
+        />
 
         <Routes>
           <Route path="/" element={<FootballPage />} />

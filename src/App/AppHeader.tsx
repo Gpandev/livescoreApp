@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Tab, Tabs } from '@mui/material';
+import { Box, Tab, Tabs } from '@mui/material';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import SportsTennisIcon from '@mui/icons-material/SportsTennis';
 import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
@@ -23,7 +23,6 @@ interface Props {
 }
 
 export const ResponsiveAppBar: React.FC<Props> = ({ onChangeTab, value }) => {
-
   const renderIcon = (page: string) => {
     switch (page) {
       case 'Football':
@@ -50,22 +49,20 @@ export const ResponsiveAppBar: React.FC<Props> = ({ onChangeTab, value }) => {
   };
 
   return (
-    <>
-      <Tabs
-        value={value}
-        onChange={(e, value) => handleChange(e, value)}
-        centered
-        role="navigation"
-      >
-        {pages.map((page) => (
-          <Tab
-            key={page}
-            icon={renderIcon(page)}
-            label={`${page}`}
-            href={`/${page === 'Football' ? '' : page.toLocaleLowerCase()}`}
-          />
-        ))}
-      </Tabs>
-    </>
+    <Tabs
+      value={value}
+      onChange={(e, value) => handleChange(e, value)}
+      centered
+      role="navigation"
+    >
+      {pages.map((page) => (
+        <Tab
+          key={page}
+          icon={renderIcon(page)}
+          label={`${page}`}
+          href={`/${page === 'Football' ? '' : page.toLocaleLowerCase()}`}
+        />
+      ))}
+    </Tabs>
   );
 };

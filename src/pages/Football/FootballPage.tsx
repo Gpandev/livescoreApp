@@ -1,5 +1,6 @@
 import React from 'react';
+import { FootballLiveResults } from './components/FootballLiveResults';
 
 export const FootballPage: React.FC = () => {
-  return <h1 style={{ color: 'red' }}>Football Page</h1>;
+  return <FootballLiveResults />;
 };
